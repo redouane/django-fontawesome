@@ -1,6 +1,6 @@
 include LICENSE
 include README.rst
-include fontawesome/icons.yaml
+include fontawesome/icons.yml
 recursive-include fontawesome *.py
 recursive-include fontawesome/static *
 recursive-include fontawesome/locale *
