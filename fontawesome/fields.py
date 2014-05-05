@@ -1,11 +1,12 @@
 from django.db import models
+from django.utils.translation import ugettext as _
 
 from . import Icon
 from forms import IconFormField
 
 class IconField(models.Field):
 
-    description = ('A fontawesome icon field')
+    description = _('A fontawesome icon field')
     __metaclass__ = models.SubfieldBase
 
     def __init__(self, *args, **kwargs):

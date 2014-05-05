@@ -4,29 +4,35 @@ django-fontawesome
 
 PS: still under developement, things may change, once stable it will be on PyPI.
 
-django-fontawesome is a django app that provides a couple of fontawesome/django related utilities, namely
+django-fontawesome is a django app that provides a couple of fontawesome/django related utilities, namely:
+
 - an IconField to associate fontawesome icons with model instances
 - templatetags to render fontawesome icons
 
 also included:
+
 - admin support for the IconField
 - fr locale translation
 
 
 Requirements
 ============
-PyYAML
+
+- PyYAML
+- Select2 (included)
+- JQuery (uses django's jquery in admin panel)
+
 
 Settings
 ========
 you need to tell django-fontawesome where your font-awesome.css resides using::
 
-    FONTAWESOME_CSS_URL
+    FONTAWESOME_CSS_URL # default is 'css/font-awesome.min.css'
 
 
 you can also tell it the fontawesome prefix, which as of right now is 'fa', using::
 
-    FONTAWESOME_PREFIX
+    FONTAWESOME_PREFIX # default is 'fa'
 
 
 Installation / Usage
@@ -55,7 +61,7 @@ here's what the widget looks like in the admin panel:
 
 3. you can then render the icon in your template like this::
     
-    {% for category in categories.all() %}
+    {% for category in categories.all %}
         {% if category.icon %}
             {{ category.icon.as_html }}
         {% endif %}
@@ -63,7 +69,8 @@ here's what the widget looks like in the admin panel:
 
 
 4. you can also use the provided template tag to render icons::
-    
+    {% load fontawesome %}
+     
     {% fontawesome_icon 'user' %}
 
     {% fontawesome_icon 'star' large=True %}

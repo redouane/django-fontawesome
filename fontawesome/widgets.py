@@ -40,8 +40,7 @@ class IconWidget(forms.Select):
 
         css = {
             'all': (
-                getattr(settings, 'FONTAWESOME_CSS_URL', ''),
-                #'css/font-awesome.min.css',
+                getattr(settings, 'FONTAWESOME_CSS_URL', 'css/font-awesome.min.css'),
                 'select2/select2.css',
                 'select2/select2-bootstrap.css'
             )
