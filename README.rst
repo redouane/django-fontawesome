@@ -2,6 +2,17 @@
 django-fontawesome
 ==================
 
+.. image:: https://badge.fury.io/py/django-fontawesome.svg
+    :target: http://badge.fury.io/py/django-fontawesome
+
+.. image:: https://pypip.in/download/django-fontawesome/badge.png
+    :target: https://pypi.python.org/pypi/django-fontawesome/
+    :alt: Downloads
+
+.. image:: https://pypip.in/license/django-fontawesome/badge.png
+    :target: https://pypi.python.org/pypi/django-fontawesome/
+    :alt: License
+
 PS: still under developement, things may change, once stable it will be on PyPI.
 
 django-fontawesome is a django app that provides a couple of fontawesome/django related utilities, namely:
