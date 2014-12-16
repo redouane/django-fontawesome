@@ -36,10 +36,12 @@ Requirements
 
 Settings
 ========
-you need to tell django-fontawesome where your font-awesome.css resides using::
+by default, django-fontawesome ships with/uses the lastest fontawesome release.
+you can configure django-fontawesome to use another release/source/cdn by using::
 
-    FONTAWESOME_CSS_URL # default is 'css/font-awesome.min.css'
-
+    FONTAWESOME_CSS_URL # default uses locally shipped version at 'fontawesome/css/font-awesome.min.css'
+    FONTAWESOME_CSS_URL = '//cdn.example.com/fontawesome-min.css' # absolute url
+    FONTAWESOME_CSS_URL = 'myapp/css/fontawesome.min.css # relative url
 
 you can also tell it the fontawesome prefix, which as of right now is 'fa', using::
 
@@ -79,14 +81,26 @@ here's what the widget looks like in the admin panel:
     {% endfor %}
 
 
-4. you can also use the provided template tag to render icons::
+4. django-fontawesome ships with two template tags, `fontawesome_stylesheet` and `fontawesome_icon`.
+    - the former inserts a stylesheet link with a pre-configured href according to the FONTAWESOME_CSS_URL setting
+    - the latter renders icons, and accepts the following optional keywords arguments: large, spin, fixed, li : (true/false), rotate: (90/180/270)
+ 
+   ::
 
-    {% load fontawesome %}
+   {% load fontawesome %}
+    
+    <head>
+     {% fontawesome_stylesheet %} 
+     ...
+    </head>
      
     {% fontawesome_icon 'user' %}
 
     {% fontawesome_icon 'star' large=True spin=True %}
-
+    
+    <ul class="fa-ul">
+     <li> {% fontawesome_icon 'home' rotate=90 li=True %} One</li>
+    </ul>
 
 5. profit!!!
 
