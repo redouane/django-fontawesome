@@ -11,6 +11,7 @@ class IconField(models.Field):
 
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 60
+        kwargs['blank'] = True
         super(IconField, self).__init__(*args, **kwargs)
 
     def get_internal_type(self):
