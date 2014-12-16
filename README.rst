@@ -85,22 +85,22 @@ here's what the widget looks like in the admin panel:
     - the former inserts a stylesheet link with a pre-configured href according to the FONTAWESOME_CSS_URL setting
     - the latter renders icons, and accepts the following optional keywords arguments: large, spin, fixed, li : (true/false), rotate: (90/180/270)
  
-  ::
+    ::
 
-   {% load fontawesome %}
+       {% load fontawesome %}
     
-    <head>
-     {% fontawesome_stylesheet %} 
-     ...
-    </head>
+       <head>
+         {% fontawesome_stylesheet %} 
+         ...
+       </head>
      
-    {% fontawesome_icon 'user' %}
+       {% fontawesome_icon 'user' %}
 
-    {% fontawesome_icon 'star' large=True spin=True %}
+       {% fontawesome_icon 'star' large=True spin=True %}
     
-    <ul class="fa-ul">
-     <li> {% fontawesome_icon 'home' rotate=90 li=True %} One</li>
-    </ul>
+       <ul class="fa-ul">
+          <li> {% fontawesome_icon 'home' rotate=90 li=True %} One</li>
+       </ul>
 
 
 5. profit!!!
