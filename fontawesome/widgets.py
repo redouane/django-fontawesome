@@ -4,7 +4,7 @@ from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
 from django.utils.html import format_html
 
-from utils import get_icon_choices
+from .utils import get_icon_choices
 
 CHOICES = get_icon_choices()
 
