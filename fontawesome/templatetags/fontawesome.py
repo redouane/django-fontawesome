@@ -6,15 +6,19 @@ from django.utils.html import format_html
 register = template.Library()
 
 @register.simple_tag
-def fontawesome_icon(icon, large=False, fixed=False, spin=False, li=False, rotate=False):
+def fontawesome_icon(icon, large=False, fixed=False, spin=False, li=False,
+    rotate=False, border=False, color=False):
 
-    return '<i class="fa fa-{icon} {large} {fixed} {spin} {li} {rotate}"></i>'.format(
+    return '<i class="{prefix} {prefix}-{icon}{large}{fixed}{spin}{li}{rotate}{border}"{color}></i>'.format(
+        prefix=getattr(settings, 'FONTAWESOME_PREFIX', 'fa'),
         icon=icon,
-        large='fa-lg' if large is True else '',
-        fixed='fa-fw' if fixed else '',
-        spin='fa-spin' if spin else '',
-        li='fa-li' if li else '',
-        rotate='fa-rotate-%s' % str(rotate) if rotate else ''
+        large=' fa-lg' if large is True else '',
+        fixed=' fa-fw' if fixed else '',
+        spin=' fa-spin' if spin else '',
+        li=' fa-li' if li else '',
+        rotate=' fa-rotate-%s' % str(rotate) if rotate else '',
+        border=' fa-border' if border else '',
+        color='style="color:%s;"' % color if color else ''
     )
 
 @register.simple_tag

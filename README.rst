@@ -83,8 +83,9 @@ here's what the widget looks like in the admin panel:
 
 4. django-fontawesome ships with two template tags, `fontawesome_stylesheet` and `fontawesome_icon`.
     - the former inserts a stylesheet link with a pre-configured href according to the FONTAWESOME_CSS_URL setting
-    - the latter renders icons, and accepts the following optional keywords arguments: large, spin, fixed, li : (true/false), rotate: (90/180/270)
- 
+    - the latter renders icons, and accepts the following optional keywords arguments: large, spin, fixed, li, border: (true/false), rotate: (90/180/270)
+    - you can also colorize an icon using the color='red' keyword argument to the fontawesome_icon template tag
+
     ::
 
        {% load fontawesome %}
@@ -94,7 +95,7 @@ here's what the widget looks like in the admin panel:
          ...
        </head>
      
-       {% fontawesome_icon 'user' %}
+       {% fontawesome_icon 'user' color='red' %}
 
        {% fontawesome_icon 'star' large=True spin=True %}
     
@@ -106,3 +107,11 @@ here's what the widget looks like in the admin panel:
 5. profit!!!
 
 .. |admin-widget| image:: docs/images/admin-widget.png
+
+changelog
+=========
+
+Feb 27, 2015
+------------
+- added two new keyword argument to the fontawesome_icon template tag, color and border
+- FONTAWESOME_PREFIX setting is now taken into account when rendering icons using the fontawesome_icon template tag
