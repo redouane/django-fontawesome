@@ -110,6 +110,9 @@ here's what the widget looks like in the admin panel:
 
 changelog
 =========
+Sep 11, 2015
+------------
+- Updated locally shipped fontawesome to 4.4.0
 
 Feb 27, 2015
 ------------
