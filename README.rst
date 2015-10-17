@@ -29,6 +29,7 @@ also included:
 Requirements
 ============
 
+- Django
 - PyYAML
 - Select2 (included)
 - JQuery (uses django's jquery in admin panel)
