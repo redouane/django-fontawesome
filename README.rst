@@ -69,13 +69,13 @@ Installation / Usage
 
 Optionally, you may include or exclude specific icons for the `IconField` by passing one of two keyword arguments: `only_ids` or `exclude_ids` which are lists of strings corresponding to the FontAwesome icon ids in `icons.yml`
 
-To only include specific icons:
+To only include specific icons::
 
     class Category(models.Model):
         ...
         icon = IconField(only_ids=['music', 'heart', 'star'])
 
-or to exclude specific icons:
+or to exclude specific icons::
 
     class Category(models.Model):
         ...
