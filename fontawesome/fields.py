@@ -2,7 +2,8 @@ from django.db import models
 from django.utils.translation import ugettext as _
 
 from . import Icon
-from forms import IconFormField
+from .forms import IconFormField
+
 
 class IconField(models.Field):
 
@@ -12,6 +13,10 @@ class IconField(models.Field):
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 60
         kwargs['blank'] = True
+
+        self.only_ids = kwargs.pop('only_ids', [])
+        self.exclude_ids = kwargs.pop('exclude_ids', [])
+
         super(IconField, self).__init__(*args, **kwargs)
 
     def get_internal_type(self):
@@ -32,9 +37,12 @@ class IconField(models.Field):
 
     def formfield(self, **kwargs):
         defaults = {
-            'form_class':IconFormField,
-            #'choices_form_class':IconFormField
+            'form_class': IconFormField,
         }
 
         defaults.update(kwargs)
+        defaults.update({
+            'only_ids': self.only_ids,
+            'exclude_ids': self.exclude_ids
+        })
         return super(IconField, self).formfield(**defaults)
