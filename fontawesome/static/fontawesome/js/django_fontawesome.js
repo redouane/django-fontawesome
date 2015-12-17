@@ -2,7 +2,6 @@ if (!$) {
     var $ = jQuery = django.jQuery;
 }
 
-
 $(function() {
 
     var prefix = $('select.fontawesome-select').data('fontawesome-prefix');
@@ -13,11 +12,10 @@ $(function() {
         return '<i class="' + prefix + ' ' + prefix + '-' + icon + '"></i> ' + state.text;
     }
 
-
     $('.fontawesome-select').select2({
-        width:'element',
-        formatResult:format,
-        formatSelection:format,
-        escapeMarkup: function(m) {return m;}
+        width: 220,
+        formatResult: format,
+        formatSelection: format,
+        escapeMarkup: function(m) { return m; }
     });
 });

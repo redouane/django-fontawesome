@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.utils.html import format_html
 
+
 class Icon(object):
 
     def __init__(self, id):

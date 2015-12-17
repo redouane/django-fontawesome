@@ -29,6 +29,7 @@ also included:
 Requirements
 ============
 
+- Django
 - PyYAML
 - Select2 (included)
 - JQuery (uses django's jquery in admin panel)
@@ -66,6 +67,20 @@ Installation / Usage
     class Category(models.Model):
         ...
         icon = IconField()
+
+Optionally, you may include or exclude specific icons for the `IconField` by passing one of two keyword arguments: `only_ids` or `exclude_ids` which are lists of strings corresponding to the FontAwesome icon ids in `icons.yml`
+
+To only include specific icons::
+
+    class Category(models.Model):
+        ...
+        icon = IconField(only_ids=['music', 'heart', 'star'])
+
+or to exclude specific icons::
+
+    class Category(models.Model):
+        ...
+        icon = IconField(exclude_ids=['volume-off', 'volume-down'])
 
 
 here's what the widget looks like in the admin panel:
@@ -110,6 +125,12 @@ here's what the widget looks like in the admin panel:
 
 changelog
 =========
+
+Oct 10, 2015
+------------
+- Added the ability to include or exclude specific FontAwesome icons by id when defining the IconField on a model
+- Added unit tests for the IconField
+
 Sep 11, 2015
 ------------
 - Updated locally shipped fontawesome to 4.4.0

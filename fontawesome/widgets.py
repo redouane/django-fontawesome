@@ -4,14 +4,8 @@ from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
 from django.utils.html import format_html
 
-from utils import get_icon_choices
-
-CHOICES = get_icon_choices()
 
 class IconWidget(forms.Select):
-
-    def __init__(self, attrs=None):
-        super(IconWidget, self).__init__(attrs, choices=CHOICES)
 
     def render_option(self, selected_choices, option_value, option_label):
         if option_value is None:
