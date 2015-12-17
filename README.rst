@@ -13,7 +13,6 @@ django-fontawesome
     :target: https://pypi.python.org/pypi/django-fontawesome/
     :alt: License
 
-PS: still under developement, things may change, once stable it will be on PyPI.
 
 django-fontawesome is a django app that provides a couple of fontawesome/django related utilities, namely:
 
@@ -50,6 +49,12 @@ you can also tell it the fontawesome prefix, which as of right now is 'fa', usin
 
 Installation / Usage
 ====================
+
+0. Install via pip
+
+```
+  pip install django-fontawesome
+```
 
 1. add 'fontawesome' to your installed apps setting like this::
 
@@ -110,6 +115,12 @@ here's what the widget looks like in the admin panel:
 
 changelog
 =========
+
+Dec 17, 2015
+------------
+- Updated locally shipped fontawesome to 4.5.0
+- fontawesome_icon's output is now marked safe
+
 Sep 11, 2015
 ------------
 - Updated locally shipped fontawesome to 4.4.0
