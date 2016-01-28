@@ -6,10 +6,11 @@ from django.utils.html import format_html, mark_safe
 register = template.Library()
 
 @register.simple_tag
-def fontawesome_icon(icon, large=False, fixed=False, spin=False, li=False,
+def fontawesome_icon(icon, title='', large=False, fixed=False, spin=False, li=False,
     rotate=False, border=False, color=False):
 
-    return mark_safe('<i class="{prefix} {prefix}-{icon}{large}{fixed}{spin}{li}{rotate}{border}"{color}></i>'.format(
+    return mark_safe('<i title="{title}" class="{prefix} {prefix}-{icon}{large}{fixed}{spin}{li}{rotate}{border}"{color}></i>'.format(
+        title=title,
         prefix=getattr(settings, 'FONTAWESOME_PREFIX', 'fa'),
         icon=icon,
         large=' fa-lg' if large is True else '',
