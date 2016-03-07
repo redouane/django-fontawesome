@@ -2,7 +2,7 @@ from django import forms
 from django.conf import settings
 
 from . import Icon
-from widgets import IconWidget
+from .widgets import IconWidget
 
 class IconFormField(forms.Field):
 
