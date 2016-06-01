@@ -1,8 +1,10 @@
+from __future__ import absolute_import
+
 from django.db import models
 from django.utils.translation import ugettext as _
 
 from . import Icon
-from forms import IconFormField
+from .forms import IconFormField
 
 class IconField(models.Field):
 

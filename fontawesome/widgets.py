@@ -1,10 +1,12 @@
+from __future__ import absolute_import
+
 from django import forms
 from django.conf import settings
 from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
 from django.utils.html import format_html
 
-from utils import get_icon_choices
+from .utils import get_icon_choices
 
 CHOICES = get_icon_choices()
 
