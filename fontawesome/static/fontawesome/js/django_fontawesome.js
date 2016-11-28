@@ -13,11 +13,46 @@ $(function() {
         return '<i class="' + prefix + ' ' + prefix + '-' + icon + '"></i> ' + state.text;
     }
 
+    var endsWith = function(value, suffix){
+        return value.indexOf(suffix, value.length - suffix.length) !== -1;    
+    };
+    
+    var install  = function(){
+        $('.fontawesome-select').each(function(){
+                
+            if ($(this).data('select2')){
+                // Already installed - nothing to do
+                return;
+            }
+            
+            var id = $(this).parents('.empty-form ').attr('id');
+            if( id != null){
 
-    $('.fontawesome-select').select2({
-        width:'element',
-        formatResult:format,
-        formatSelection:format,
-        escapeMarkup: function(m) {return m;}
+                // Inline formsets contains a template for the select with '-empty' suffix in the id.
+                // We do not want to install select2 on the template, as clicking '.add-row a' calls clone which will break the select2
+                var suffix = "-empty";
+                var isEmptyTemplate = endsWith(id, "-empty");
+                
+                if(isEmptyTemplate){
+                    return;
+                }
+            }            
+            
+            $(this).select2({
+                width:'element',
+                formatResult:format,
+                formatSelection:format,
+                escapeMarkup: function(m) {return m;}
+            });
+            
+        });
+    }
+
+    //Install on regular fields of the form
+    install();
+    
+    // Install on dynamically created inline items
+    $('.inline-group .add-row a').click(function(){
+            install();
     });
 });
