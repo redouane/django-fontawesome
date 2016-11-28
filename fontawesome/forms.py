@@ -2,7 +2,7 @@ from django import forms
 from django.conf import settings
 
 from . import Icon
-from widgets import IconWidget
+from .widgets import IconWidget
 
 class IconFormField(forms.Field):
 
@@ -10,7 +10,7 @@ class IconFormField(forms.Field):
         self.widget = IconWidget
 
         if 'initial' in kwargs:
-           kwargs['initial'] = Icon(*kwargs['initial'])
+           kwargs['initial'] = Icon(kwargs['initial'])
 
         super(IconFormField, self).__init__(**kwargs)
 
