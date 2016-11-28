@@ -5,14 +5,6 @@ django-fontawesome
 .. image:: https://badge.fury.io/py/django-fontawesome.svg
     :target: http://badge.fury.io/py/django-fontawesome
 
-.. image:: https://pypip.in/download/django-fontawesome/badge.png
-    :target: https://pypi.python.org/pypi/django-fontawesome/
-    :alt: Downloads
-
-.. image:: https://pypip.in/license/django-fontawesome/badge.png
-    :target: https://pypi.python.org/pypi/django-fontawesome/
-    :alt: License
-
 
 django-fontawesome is a `Django <https://www.djangoproject.com>`_ app that provides a couple of Fontawesome/Django related utilities, namely:
 
@@ -52,7 +44,8 @@ Installation / Usage
 
 0. Install via pip::
 
-  pip install django-fontawesome
+    pip install django-fontawesome
+
 
 1. Add 'fontawesome' to your installed apps setting like this::
 
@@ -89,22 +82,22 @@ Here's what the widget looks like in the admin panel:
     - the latter renders icons, and accepts the following optional keywords arguments: large, spin, fixed, li, border: (true/false), rotate: (90/180/270), title: (string)
     - you can also colorize an icon using the ``color='red'`` keyword argument to the ``fontawesome_icon`` template tag
 
-    ::
+    - example usage::
 
-       {% load fontawesome %}
-    
-       <head>
-         {% fontawesome_stylesheet %} 
-         ...
-       </head>
-     
-       {% fontawesome_icon 'user' color='red' %}
+         {% load fontawesome %}
+      
+         <head>
+           {% fontawesome_stylesheet %} 
+           ...
+         </head>
+       
+         {% fontawesome_icon 'user' color='red' %}
 
-       {% fontawesome_icon 'star' large=True spin=True %}
-    
-       <ul class="fa-ul">
-          <li> {% fontawesome_icon 'home' rotate=90 li=True %} One</li>
-       </ul>
+         {% fontawesome_icon 'star' large=True spin=True %}
+      
+         <ul class="fa-ul">
+            <li> {% fontawesome_icon 'home' rotate=90 li=True %} One</li>
+         </ul>
 
 
 5. profit!!!
@@ -113,6 +106,17 @@ Here's what the widget looks like in the admin panel:
 
 changelog
 =========
+
+Nov 28, 2016
+------------
+- now suppots django 1.8+
+- python3 supported, supposedly
+- relative import issues fixed
+- updated icon mapping for fontawesome 4.7
+- tabular and stacked inlines now supported
+- other small fixes
+- new PyPI release (0.3)
+
 Jan 28, 2016
 ------------
 - updated icon mapping file (icons.yml) for fontawesome 4.5.0

@@ -9,7 +9,7 @@ register = template.Library()
 def fontawesome_icon(icon, title='', large=False, fixed=False, spin=False, li=False,
     rotate=False, border=False, color=False):
 
-    return mark_safe('<i title="{title}" class="{prefix} {prefix}-{icon}{large}{fixed}{spin}{li}{rotate}{border}"{color}></i>'.format(
+    return mark_safe('<i title="{title}" class="{prefix} {prefix}-{icon}{large}{fixed}{spin}{li}{rotate}{border}" {color}></i>'.format(
         title=title,
         prefix=getattr(settings, 'FONTAWESOME_PREFIX', 'fa'),
         icon=icon,

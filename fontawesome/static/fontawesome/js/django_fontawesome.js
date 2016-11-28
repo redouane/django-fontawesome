@@ -52,7 +52,21 @@ $(function() {
     install();
     
     // Install on dynamically created inline items
-    $('.inline-group .add-row a').click(function(){
+
+    var jquery_version = parseFloat($.fn.jquery);
+    
+    if (jquery_version < 2.1) {
+        // pre django 1.9
+         $('.inline-group .add-row a').click(function(){
             install();
-    });
+        });
+    }
+
+    else {
+        // django 1.9+
+        $(document).on('formset:added', function(){
+            install();
+        });
+    }
+
 });
