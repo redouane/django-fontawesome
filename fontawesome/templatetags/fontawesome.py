@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django import template
 from django.conf import settings
 from django.contrib.staticfiles.templatetags.staticfiles import static

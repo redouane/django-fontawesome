@@ -107,6 +107,11 @@ Here's what the widget looks like in the admin panel:
 changelog
 =========
 
+0.3.1 - Dec 19, 2016
+--------------------
+- added unicode literals import for cases where icon title attribute uses non ascii chars
+
+
 Nov 28, 2016
 ------------
 - now suppots django 1.8+
