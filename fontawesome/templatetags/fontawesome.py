@@ -27,5 +27,10 @@ def fontawesome_icon(icon, title='', large=False, fixed=False, spin=False, li=Fa
 @register.simple_tag
 def fontawesome_stylesheet():
     href = getattr(settings, 'FONTAWESOME_CSS_URL', static('fontawesome/css/font-awesome.min.css'))
-    link = format_html('<link href="{0}" rel="stylesheet" media="all">', href)
+    link_body = ''
+    if href.endswith('.js'):
+        link_body = '<script defer src="{0}"></script>'
+    else:
+        link_body = '<link href="{0}" rel="stylesheet" media="all">'
+    link = format_html(link_body, href)
     return link
