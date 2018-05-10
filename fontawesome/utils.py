@@ -8,7 +8,7 @@ def get_icon_choices():
     CHOICES = [('', '----------')]
 
     with open(PATH) as f:
-        icons = yaml.load(f)
+        icons = yaml.safe_load(f)
 
     for icon in icons.get('icons'):
         CHOICES.append((
