@@ -107,6 +107,12 @@ Here's what the widget looks like in the admin panel:
 changelog
 =========
 
+1.0 - May 10, 2018
+--------------------
+- django 1.11 compability
+- usage of yaml's `safe_load` instead of insecure `load`
+- new pypi release (1.0), is now considered a stable release
+
 0.3.1 - Dec 19, 2016
 --------------------
 - added unicode literals import for cases where icon title attribute uses non ascii chars
