@@ -8,12 +8,11 @@ from django.utils.html import format_html, mark_safe
 register = template.Library()
 
 @register.simple_tag
-def fontawesome_icon(icon, title='', large=False, fixed=False, spin=False, li=False,
+def fontawesome_icon(icon, weight, title='', large=False, fixed=False, spin=False, li=False,
     rotate=False, border=False, color=False):
-
-    return mark_safe('<i title="{title}" class="{prefix} {prefix}-{icon}{large}{fixed}{spin}{li}{rotate}{border}" {color}></i>'.format(
+    return mark_safe('<i title="{title}" class="{weight} fa-{icon}{large}{fixed}{spin}{li}{rotate}{border}" {color}></i>'.format(
         title=title,
-        prefix=getattr(settings, 'FONTAWESOME_PREFIX', 'fa'),
+        weight=weight,
         icon=icon,
         large=' fa-lg' if large is True else '',
         fixed=' fa-fw' if fixed else '',
@@ -27,5 +26,10 @@ def fontawesome_icon(icon, title='', large=False, fixed=False, spin=False, li=Fa
 @register.simple_tag
 def fontawesome_stylesheet():
     href = getattr(settings, 'FONTAWESOME_CSS_URL', static('fontawesome/css/font-awesome.min.css'))
-    link = format_html('<link href="{0}" rel="stylesheet" media="all">', href)
+    link_body = ''
+    if href.endswith('.js'):
+        link_body = '<script defer src="{0}"></script>'
+    else:
+        link_body = '<link href="{0}" rel="stylesheet" media="all">'
+    link = format_html(link_body, href)
     return link
