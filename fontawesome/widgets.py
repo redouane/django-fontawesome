@@ -6,10 +6,21 @@ from django.conf import settings
 from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
 from django.utils.html import format_html
+from django.utils.module_loading import import_string
 
 from .utils import get_icon_choices
 
-CHOICES = get_icon_choices()
+# Check if settings FONTAWESOME_ICON_CHOICE is set
+if hasattr(settings, 'FONTAWESOME_ICON_CHOICE'):
+    choices_settings = settings.FONTAWESOME_ICON_CHOICE
+    try : # If path to function
+        CHOICES = import_string(choices_settings)()
+        
+    except Exception as e:
+        CHOICES = choices_settings
+
+else :
+    CHOICES = get_icon_choices()
 
 class IconWidget(forms.Select):
 
