@@ -17,7 +17,6 @@ if hasattr(settings, 'FONTAWESOME_ICON_CHOICE'):
         CHOICES = import_string(choices_settings)()
         
     except Exception as e:
-        print(e)
         CHOICES = choices_settings
 
 else :

@@ -6,11 +6,12 @@ if (!$) {
 $(function() {
 
     var prefix = $('select.fontawesome-select').data('fontawesome-prefix');
+    var prefix_icon = $('select.fontawesome-select').data('fontawesome-prefix-icon');
 
     function format(state) {
         if (!state.id) { return state.text; }
         var icon = $(state.element).data('icon');
-        return '<i class="' + prefix + ' ' + prefix + icon + '"></i> ' + state.text;
+        return '<i class="' + prefix + ' ' + prefix_icon + icon + '"></i> ' + state.text;
     }
 
     var endsWith = function(value, suffix){
