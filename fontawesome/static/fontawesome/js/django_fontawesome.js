@@ -10,7 +10,7 @@ $(function() {
     function format(state) {
         if (!state.id) { return state.text; }
         var icon = $(state.element).data('icon');
-        return '<i class="' + prefix + ' ' + prefix + '-' + icon + '"></i> ' + state.text;
+        return '<i class="' + prefix + ' ' + prefix + icon + '"></i> ' + state.text;
     }
 
     var endsWith = function(value, suffix){
