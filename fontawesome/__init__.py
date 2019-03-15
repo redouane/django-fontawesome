@@ -10,8 +10,15 @@ class Icon(object):
         if not self.id:
             return ''
 
-        prefix = getattr(settings, 'FONTAWESOME_PREFIX', 'fa')
-        return format_html('<i class="{0} {0}-{1}"></i>', prefix, self.id)
+        return format_html('<i class="{0}"></i>', self.css_class, self.id)
+
+    @property
+    def css_class(self):
+        return '{0} {0}-{1}'.format(self.prefix, self.id)
+
+    @property
+    def prefix(self):
+        return getattr(settings, 'FONTAWESOME_PREFIX', 'fa')
 
     def __str__(self):
         return self.id
