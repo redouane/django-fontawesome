@@ -1,6 +1,4 @@
-if (!$) {
-    var $ = jQuery = django.jQuery;
-}
+let $ = django.jQuery;
 
 
 $(function() {
