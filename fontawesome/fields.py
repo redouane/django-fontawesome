@@ -6,6 +6,7 @@ from django.utils.translation import ugettext as _
 from . import Icon
 from .forms import IconFormField
 
+
 class IconField(models.Field):
 
     description = _('A fontawesome icon field')
@@ -18,7 +19,7 @@ class IconField(models.Field):
     def get_internal_type(self):
         return 'CharField'
 
-    def from_db_value(self, value, expression, connection, context):
+    def from_db_value(self, value, expression, *args):
         if value is None:
             return value
         return Icon(id=value)
@@ -38,8 +39,7 @@ class IconField(models.Field):
 
     def formfield(self, **kwargs):
         defaults = {
-            'form_class':IconFormField,
-            #'choices_form_class':IconFormField
+            'form_class': IconFormField,
         }
 
         defaults.update(kwargs)
