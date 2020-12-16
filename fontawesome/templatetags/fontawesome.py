@@ -2,7 +2,11 @@ from __future__ import unicode_literals
 
 from django import template
 from django.conf import settings
-from django.contrib.staticfiles.templatetags.staticfiles import static
+try:
+    from django.templatetags.static import static
+except ImportError:
+    from django.contrib.staticfiles.templatetags.staticfiles import static
+
 from django.utils.html import format_html, mark_safe
 
 register = template.Library()
