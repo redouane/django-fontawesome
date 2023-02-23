@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 from django import VERSION as django_version
 from django import forms
 from django.conf import settings
